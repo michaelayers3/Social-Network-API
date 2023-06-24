@@ -1,5 +1,5 @@
-//const X = require('./X'),
-//const Y = require ('./Y'),
-//const Z = require ('./Z'),
+const User = require('./User');
+const Thought = require ('./Thought');
+const Reaction = require ('./Reaction');
 
-//module.exports = {X, Y, Z};
+module.exports = {User, Thought, Reaction};
