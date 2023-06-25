@@ -20,7 +20,7 @@ router.route('/:userId')
 router.route('/:userId/friends').post(getFriends);
 
 router.route('/:userId/friends/:friendId')
-.destroy(deleteFriends);
+.delete(deleteFriends);
 
 
 
