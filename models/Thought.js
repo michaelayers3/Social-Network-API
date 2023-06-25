@@ -6,8 +6,8 @@ const thoughtSchema = new Schema(
         thoughtText: {
             type: String,
             minLength: 1,
-            maxLength: 280
-            //require
+            maxLength: 280,
+            required: true
         },
         createdAt: {
             type: Date,
@@ -16,9 +16,15 @@ const thoughtSchema = new Schema(
         },
         username: [
             {
-                type: Schema.Types.ObjectId,
+                type: String,
                 ref: 'user',
             },
+        ],
+        userId: [
+          {
+              type: Schema.Types.ObjectId,
+              ref: 'user',
+          }
         ],
         reactions: [Reaction],
     },
@@ -31,7 +37,7 @@ const thoughtSchema = new Schema(
 );
 
 thoughtSchema
-  .virtual('getReactions')
+  .virtual('totalReactions')
   .get(function () {
     return this.reactions.length;
   });
