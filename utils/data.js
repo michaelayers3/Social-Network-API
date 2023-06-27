@@ -1,35 +1,25 @@
 
 const names = [
-    'Aaran',
-    'Aaren',
-    'Aarez',
-    'Ze',
-    'Zechariah',
-    'Zeek',
+    'Name',
+    'Name1',
+    'Name2',
+    'Name3',
+    'Name4',
+    'Name5',
   ];
   
   const thoughtBodies = [
-    'How to disagree with someone',
-    'iPhone review',
-    'how-to video',
-    'video essay on the history of video games',
-    'How to make money on the App Store',
-    'Learn NextJS in five minutes (Not clickbate)',
-    'Movie trailer',
-    'Hello world',
-    'Another possible solution to the algorithm',
-    'Apology video',
-    'Submission for startup pitch',
+   'Test',
+   'Test1',
+   'Test2',
+   'Test3'
   ];
   
   const possibleReactions = [
-    'I disagree!',
-    'I tried your algorithm, here were the results',
-    'This was awesome',
-    'Thank you for the great content',
-    'Please check out my video response',
-    'Like and subscribe to my channel please',
-    'Reply: The side effects of in app purchases on digital marketplaces',
+    'Reaction',
+    'Reaction1',
+    'Reaction2',
+    'Reaction3'
   ];
   
   const users = [];
@@ -48,8 +38,9 @@ const names = [
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
+        username: getRandomName(),
         thoughtText: getRandomArrItem(thoughtBodies),
-        reactions: [...getThoughtReactions(3)],
+        reactions: [...getThoughtReactions(2)],
       });
     }
     return results;

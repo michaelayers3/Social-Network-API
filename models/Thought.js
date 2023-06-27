@@ -12,24 +12,24 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            //getter method to format the timestamp on query
+            get: (date) => {
+              if (date) return date.toLocaleDateString();
+            },
         },
         username: [
             {
                 type: String,
+                // type: Schema.Types.ObjectId,
                 ref: 'user',
+                required: true,
             },
         ],
-        userId: [
-          {
-              type: Schema.Types.ObjectId,
-              ref: 'user',
-          }
-        ],
+      
         reactions: [Reaction],
     },
     {
-        toJSON: {
+      toJSON: {
+          getters: true,
           virtuals: true,
         },
         id: false,

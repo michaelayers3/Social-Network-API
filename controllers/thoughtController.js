@@ -50,16 +50,16 @@ module.exports = {
                 { $set: req.body },
                 { runValidators: true, new: true }
             );
-            if (!user) {
-                return res.status(404).json({
-                    message: 'Thought created, but found no user with that ID',
-                });
-            }
+            // if (!user) {
+            //     return res.status(404).json({
+            //         message: 'Thought created, but found no user with that ID',
+            //     });
+            // }
 
             res.json(thought)
 
         } catch (err) {
-            
+            console.log(err)
             res.status(500).json();
         }
     },
@@ -71,16 +71,17 @@ module.exports = {
                 return res.status(404).json({ message: 'No thought with that ID found'})
             }
 
-            const user = await User.findOneandUpdate(
-                {thoughts: req.params.thoughtId},
-                {$pull: {thoughts: req.params.thoughtId}},
-                {new: true}
-            );
-            if (!user) {
-                return res.status(404).json({message: 'Thought deleted, but no user with that ID found'})
-            }
+            // const user = await User.findOneAndUpdate(
+            //     {username: req.body.username},
+            //     {$pull: {thoughts: req.params.thoughtId}},
+            //     {new: true}
+            // );
+            // if (!user) {
+            //     return res.status(404).json({message: 'Begone, thought!'})
+            // }
             res.json({ message: 'Begone, thought!'})
         }catch (err) {
+            console.log(err)
             res.status(500).json(err);
         }
     },
